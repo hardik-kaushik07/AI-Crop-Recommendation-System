@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropWise AI | Farm Analysis</title>
+
+    <link rel="stylesheet" href="css/analysis.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>🌱 CropWise AI</h1>
+
+        <p>Smart Crop Recommendation System</p>
+
+    </div>
+
+
+    <!-- ================= FORM ================= -->
+
+    <div class="card">
+
+        <h2>Farm Details</h2>
+
+        <form id="analysisForm">
+
+            <div class="input-group">
+
+                <label>Location</label>
+                <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter Farm Location"
+                        required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Soil Type</label>
+
+                <select id="soilType" required>
+
+                    <option value="">Select Soil Type</option>
+
+                    <option>Sandy</option>
+
+                    <option>Clay</option>
+
+                    <option>Loamy</option>
+
+                    <option>Black</option>
+
+                    <option>Red</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Soil pH</label>
+
+                <input
+                        type="number"
+                        step="0.1"
+                        min="0"
+                        max="14"
+                        id="ph"
+                        placeholder="Example : 6.5"
+                        required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Nitrogen</label>
+
+                <select id="nitrogen">
+
+                    <option>Low</option>
+
+                    <option selected>Medium</option>
+
+                    <option>High</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Phosphorus</label>
+
+                <select id="phosphorus">
+
+                    <option>Low</option>
+
+                    <option selected>Medium</option>
+
+                    <option>High</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Potassium</label>
+
+                <select id="potassium">
+
+                    <option>Low</option>
+
+                    <option selected>Medium</option>
+
+                    <option>High</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Season</label>
+
+                <select id="season">
+
+                    <option>Kharif</option>
+
+                    <option>Rabi</option>
+
+                    <option>Zaid</option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                    type="submit"
+                    id="analyzeBtn">
+
+                Analyze Farm
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- ================= LOADING ================= -->
+
+    <div
+            id="loading"
+            class="loading">
+
+        <div class="spinner"></div>
+
+        <p>AI is analyzing your farm...</p>
+
+    </div>
+
+
+    <!-- ================= RESULT ================= -->
+
+    <div
+            class="result-card"
+            id="resultCard">
+
+        <h2>🌾 Crop Recommendation</h2>
+
+        <div class="result-item">
+
+            <span>Recommended Crop</span>
+
+            <p id="crop"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Reason</span>
+
+            <p id="reason"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Fertilizer</span>
+
+            <p id="fertilizer"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Pesticide</span>
+
+            <p id="pesticide"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Irrigation</span>
+
+            <p id="irrigation"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Disease Risk</span>
+
+            <p id="diseaseRisk"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Harvest Time</span>
+
+            <p id="harvestTime"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Expected Yield</span>
+
+            <p id="expectedYield"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Temperature</span>
+
+            <p id="temperature"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Humidity</span>
+
+            <p id="humidity"></p>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Weather</span>
+
+            <p id="weather"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/analysis.js"></script>
+
+</body>
+</html>

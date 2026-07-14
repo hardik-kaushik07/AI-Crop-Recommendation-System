@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | CropWise AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="auth-body">
+
+<nav>
+
+    <div class="logo">
+
+        🌱 CropWise AI
+
+    </div>
+
+    <ul>
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="login.html">Login</a></li>
+
+    </ul>
+
+</nav>
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h2>Create Account</h2>
+
+        <p>Register to start getting AI crop recommendations.</p>
+
+        <form id="registerForm">
+
+            <input
+                    type="text"
+                    id="name"
+                    placeholder="Full Name"
+                    required
+            >
+
+            <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+            >
+
+            <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+            >
+
+            <div id="registerMessage" class="message"></div>
+
+            <button type="submit">
+
+                Register
+
+            </button>
+
+        </form>
+
+        <p class="bottom-text">
+
+            Already have an account?
+
+            <a href="login.html">
+
+                Login
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+<script src="js/config.js"></script>
+
+<script src="js/register.js"></script>
+
+</body>
+
+</html>

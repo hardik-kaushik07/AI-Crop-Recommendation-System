@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>History | CropWise AI</title>
+
+    <link rel="stylesheet" href="css/history.css">
+
+</head>
+
+<body>
+
+
+
+<header class="navbar">
+
+    <div class="logo">
+        🌱 CropWise AI
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='dashboard.html'">
+        ← Dashboard
+    </button>
+
+</header>
+
+
+
+<section class="page-header">
+
+    <h1>Recommendation History</h1>
+
+    <p>
+        View all your previous AI-generated crop recommendations.
+    </p>
+
+</section>
+
+
+
+<section class="action-bar">
+
+    <button
+            id="deleteAllBtn"
+            class="danger-btn">
+
+        Delete All History
+
+    </button>
+
+</section>
+
+<
+
+<div id="messageBox"></div>
+
+
+
+<div
+        id="historyContainer"
+        class="history-container">
+
+</div>
+
+
+
+<div
+        id="detailsModal"
+        class="modal">
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+
+            <h2>Recommendation Details</h2>
+
+            <span id="closeDetails">
+
+                &times;
+
+            </span>
+
+        </div>
+
+        <div id="modalBody">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div
+        id="deleteModal"
+        class="modal">
+
+    <div class="confirm-card">
+
+        <h2>
+
+            Delete Recommendation?
+
+        </h2>
+
+        <p id="deleteMessage">
+
+            This recommendation will be permanently deleted.
+
+        </p>
+
+        <div class="confirm-buttons">
+
+            <button
+                    id="confirmDelete"
+                    class="danger-btn">
+
+                Delete
+
+            </button>
+
+            <button
+                    id="cancelDelete"
+                    class="secondary-btn">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div
+        id="deleteAllModal"
+        class="modal">
+
+    <div class="confirm-card">
+
+        <h2>
+
+            Delete Entire History?
+
+        </h2>
+
+        <p>
+
+            All recommendations will be permanently removed.
+
+        </p>
+
+        <div class="confirm-buttons">
+
+            <button
+                    id="confirmDeleteAll"
+                    class="danger-btn">
+
+                Delete All
+
+            </button>
+
+            <button
+                    id="cancelDeleteAll"
+                    class="secondary-btn">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div
+        id="loader"
+        class="loader">
+
+    <div class="spinner"></div>
+
+    <p>
+
+        Loading Recommendations...
+
+    </p>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/history.js"></script>
+
+</body>
+
+</html>
