@@ -10,11 +10,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FarmAnalysisRepository extends JpaRepository<FarmAnalysis, Long> {
-    Page<FarmAnalysis> findByUser(Users user, Pageable pageable);
+    Page<FarmAnalysis> findByUserOrderByIdDesc(Users user, Pageable pageable);
 
     Optional<FarmAnalysis> findByIdAndUser(Long id, Users user);
 
     void deleteByUser(Users user);
+
+    long countByUser(Users user);
 
 
 }

@@ -1,6 +1,7 @@
 package com.hardik.farmapp.Service;
 
 import com.hardik.farmapp.Entity.Users;
+import com.hardik.farmapp.Enum.Role;
 import com.hardik.farmapp.Repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,6 +27,7 @@ public class UsersService {
     public Users register(Users user) {
 
         user.setPassword(encoder.encode(user.getPassword()));
+        user.setRole(Role.ROLE_USER);
         return usersRepository.save(user);
     }
 

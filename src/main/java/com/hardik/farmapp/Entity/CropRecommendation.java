@@ -25,25 +25,36 @@ public class CropRecommendation {
 
     private String crop;
 
-    @Column(columnDefinition = "TEXT")
+//    @Column(columnDefinition = "TEXT")
+      @Column(length = 1000)
     private String reason;
 
-    @Column(columnDefinition = "TEXT")
+//    @Column(columnDefinition = "TEXT")
+    @Column(length = 500)
     private String fertilizer;
 
-    @Column(columnDefinition = "TEXT")
+//    @Column(columnDefinition = "TEXT")
+
+    @Column(length = 500)
     private String pesticide;
 
-    @Column(columnDefinition = "TEXT")
+//    @Column(columnDefinition = "TEXT")
+
+    @Column(length = 500)
     private String irrigation;
 
-    @Column(columnDefinition = "TEXT")
+//    @Column(columnDefinition = "TEXT")
+
+    @Column(length = 500)
     private String diseaseRisk;
 
-    @Column(columnDefinition = "TEXT")
+//    @Column(columnDefinition = "TEXT")
+
+    @Column(length = 500)
     private String harvestTime;
 
-    @Column(columnDefinition = "TEXT")
+
+    @Column(length = 500)
     private String expectedYield;
 
     private Double temperature;

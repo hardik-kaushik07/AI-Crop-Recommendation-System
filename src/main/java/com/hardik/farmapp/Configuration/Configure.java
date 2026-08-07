@@ -43,10 +43,16 @@ public class Configure {
                         .requestMatchers(
                                 "/api/user/register",
                                 "/api/user/login",
+                                "/api/farm/weather",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
                                 "/v3/api-docs/**"
                         ).permitAll()
+                        .requestMatchers("/api/admin/**")
+                        .hasRole("ADMIN")
+
+                        .requestMatchers("/api/**")
+                        .hasAnyRole("USER", "ADMIN")
                         .anyRequest().authenticated())
 
                 .sessionManagement(session ->

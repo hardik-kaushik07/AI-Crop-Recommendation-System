@@ -1,4 +1,4 @@
-package com.hardik.farmapp.Request;
+package com.hardik.farmapp.DTO;
 
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;

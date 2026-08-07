@@ -6,7 +6,7 @@ import com.hardik.farmapp.Entity.FarmAnalysis;
 import com.hardik.farmapp.Entity.Users;
 import com.hardik.farmapp.Repository.FarmAnalysisRepository;
 import com.hardik.farmapp.Repository.UsersRepository;
-import com.hardik.farmapp.Request.FarmRequest;
+import com.hardik.farmapp.DTO.FarmRequest;
 import com.hardik.farmapp.Response.WeatherResponse;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,9 @@ public class AiService {
     private WeatherService weatherService;
 
     @Autowired
+    private WeatherTools weatherTools;
+
+    @Autowired
     private FarmAnalysisRepository farmAnalysisRepository;
 
     private final ChatClient chatClient;
@@ -31,7 +34,8 @@ public class AiService {
     private UsersRepository usersRepository;
 
     public AiService(ChatClient.Builder builder){
-        this.chatClient = builder.build();
+        this.chatClient = builder
+                .build();
     }
 
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -69,8 +73,8 @@ Nitrogen : %s
 Phosphorus : %s
 Potassium : %s
 Season : %s
-Temperature : %.2f °C
-Humidity : %d%%
+Temperature : %.2f
+Humidity : %d
 Weather : %s
 
 Instructions
@@ -99,16 +103,7 @@ Instructions
                         
                                                Return
 
-{
-  "crop":"",
-  "reason":"",
-  "fertilizer":"",
-  "pesticide":"",
-  "irrigation":"",
-  "diseaseRisk":"",
-  "harvestTime":"",
-  "expectedYield":""
-}
+
 
 Keep every field concise.
 
@@ -141,14 +136,22 @@ Rules
                 weather.getWeatherCondition()
         );
 
-        String response= chatClient.prompt()
+//        String response= chatClient.prompt()
+//                .user(prompt)
+//                .call()
+//                .content();
+
+
+//        CropRecommendation recommendation= chatClient.prompt()
+//                .user(prompt)
+//                .tools(weatherTools)
+//                .call()
+//                .entity(CropRecommendation.class);
+
+        CropRecommendation recommendation = chatClient.prompt()
                 .user(prompt)
                 .call()
-                .content();
-
-        System.out.println("============== AI RESPONSE ==============");
-        System.out.println(response);
-        System.out.println("=========================================");
+                .entity(CropRecommendation.class);
 
         try {
 
@@ -162,15 +165,15 @@ Rules
                 throw new UsernameNotFoundException("Sorry the user not Found");
             }
 
-            CropRecommendation recommendation =
-                    objectMapper.readValue(response, CropRecommendation.class);
+//            CropRecommendation recommendation =
+//                    objectMapper.readValue(response, CropRecommendation.class);
 
             System.out.println("Harvest = " + recommendation.getHarvestTime());
             System.out.println("Yield = " + recommendation.getExpectedYield());
 
-            recommendation.setTemperature(weather.getTemperature());
-            recommendation.setHumidity(weather.getHumidity());
-            recommendation.setWeatherCondition(weather.getWeatherCondition());
+//            recommendation.setTemperature(weather.getTemperature());
+//            recommendation.setHumidity(weather.getHumidity());
+//            recommendation.setWeatherCondition(weather.getWeatherCondition());
 
 
             FarmAnalysis analysis = new FarmAnalysis();
@@ -182,9 +185,9 @@ Rules
             analysis.setPhosphorus(request.getPhosphorus());
             analysis.setPotassium(request.getPotassium());
             analysis.setSeason(request.getSeason());
-            analysis.setTemperature(weather.getTemperature());
-            analysis.setHumidity(weather.getHumidity());
-            analysis.setWeather(weather.getWeatherCondition());
+            analysis.setTemperature(recommendation.getTemperature());
+            analysis.setHumidity(recommendation.getHumidity());
+            analysis.setWeather(recommendation.getWeatherCondition());
             analysis.setUser(user);
             analysis.setRecommendation(recommendation);
 
@@ -204,3 +207,14 @@ Rules
 
     }
 }
+
+//{
+//  "crop":"",
+//  "reason":"",
+//  "fertilizer":"",
+//  "pesticide":"",
+//  "irrigation":"",
+//  "diseaseRisk":"",
+//  "harvestTime":"",
+//  "expectedYield":""
+//}
