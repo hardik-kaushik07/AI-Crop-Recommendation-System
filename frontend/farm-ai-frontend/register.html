@@ -5,86 +5,205 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Register | CropWise AI</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
 </head>
 
-<body class="auth-body">
+<body>
 
-<nav>
+<div class="login-container">
 
-    <div class="logo">
+    <!-- LEFT -->
 
-        🌱 CropWise AI
+    <div class="left-panel">
+
+        <div class="overlay">
+
+            <h1>
+
+                🌱 CropWise AI
+
+            </h1>
+
+            <h2>
+
+                Join Smart Farming
+
+            </h2>
+
+            <p>
+
+                Create your Farm AI account and start using
+                AI Chat, Crop Recommendation,
+                Image Understanding,
+                PDF Question Answering,
+                Weather Analysis,
+                and Recommendation History.
+
+            </p>
+
+        </div>
 
     </div>
 
-    <ul>
+    <!-- RIGHT -->
 
-        <li><a href="index.html">Home</a></li>
+    <div class="right-panel">
 
-        <li><a href="login.html">Login</a></li>
+        <div class="login-card">
 
-    </ul>
+            <h2>
 
-</nav>
+                Create Account
 
-<div class="auth-container">
+            </h2>
 
-    <div class="auth-card">
+            <p>
 
-        <h2>Create Account</h2>
+                Start your AI farming journey
 
-        <p>Register to start getting AI crop recommendations.</p>
+            </p>
 
-        <form id="registerForm">
+            <form id="registerForm">
 
-            <input
-                    type="text"
-                    id="name"
-                    placeholder="Full Name"
-                    required
-            >
+                <div class="input-box">
 
-            <input
-                    type="email"
-                    id="email"
-                    placeholder="Email Address"
-                    required
-            >
+                    <label>
 
-            <input
-                    type="password"
-                    id="password"
-                    placeholder="Password"
-                    required
-            >
+                        Full Name
 
-            <div id="registerMessage" class="message"></div>
+                    </label>
 
-            <button type="submit">
+                    <input
 
-                Register
+                            type="text"
 
-            </button>
+                            id="name"
 
-        </form>
+                            placeholder="Enter your full name"
 
-        <p class="bottom-text">
+                            required>
 
-            Already have an account?
+                </div>
 
-            <a href="login.html">
+                <div class="input-box">
 
-                Login
+                    <label>
+
+                        Email Address
+
+                    </label>
+
+                    <input
+
+                            type="email"
+
+                            id="email"
+
+                            placeholder="Enter your email"
+
+                            required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>
+
+                        Password
+
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+
+                                type="password"
+
+                                id="password"
+
+                                placeholder="Enter password"
+
+                                required>
+
+                        <span
+
+                                id="togglePassword"
+
+                                class="toggle-password">
+
+                            👁
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div
+
+                        id="registerMessage"
+
+                        class="message">
+
+                </div>
+
+                <button
+
+                        type="submit"
+
+                        class="login-btn">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+            <div class="divider">
+
+                OR
+
+            </div>
+
+            <p class="register-text">
+
+                Already have an account?
+
+                <a href="login.html">
+
+                    Login
+
+                </a>
+
+            </p>
+
+            <a
+
+                    href="index.html"
+
+                    class="back-home">
+
+                ← Back to Home
 
             </a>
 
-        </p>
+        </div>
 
     </div>
 

@@ -1,27 +1,78 @@
-document.getElementById("loginForm").addEventListener("submit", async function (e) {
+const loginForm = document.getElementById("loginForm");
+
+const loginMessage = document.getElementById("loginMessage");
+
+const loginButton = document.querySelector(".login-btn");
+
+const passwordInput = document.getElementById("password");
+
+const togglePassword = document.getElementById("togglePassword");
+
+// ==========================================
+// Show / Hide Password
+// ==========================================
+
+togglePassword.addEventListener("click", () => {
+
+    if (passwordInput.type === "password") {
+
+        passwordInput.type = "text";
+
+        togglePassword.textContent = "🙈";
+
+    } else {
+
+        passwordInput.type = "password";
+
+        togglePassword.textContent = "👁";
+
+    }
+
+});
+
+// ==========================================
+// Login
+// ==========================================
+
+loginForm.addEventListener("submit", async function (e) {
 
     e.preventDefault();
 
+    loginMessage.innerText = "";
+
+    loginButton.disabled = true;
+
+    loginButton.innerText = "Logging in...";
+
     const user = {
 
-        email: document.getElementById("email").value,
-        password: document.getElementById("password").value
+        email: document.getElementById("email").value.trim(),
+
+        password: passwordInput.value
 
     };
 
     try {
 
-        const response = await fetch(`${API_BASE_URL}/api/user/login`, {
+        const response = await fetch(
 
-            method: "POST",
+            API_BASE_URL + "/api/user/login",
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+            {
 
-            body: JSON.stringify(user)
+                method: "POST",
 
-        });
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify(user)
+
+            }
+
+        );
 
         const token = await response.text();
 
@@ -29,29 +80,43 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 
             localStorage.setItem("token", token);
 
-        const msg=document.getElementById("loginMessage");
+            loginMessage.style.color = "#2e7d32";
 
-    msg.className="message success";
-    msg.innerText="Login Successful";
+            loginMessage.innerText = "✅ Login Successful";
 
-    setTimeout(()=>{
-    window.location.href="dashboard.html";
-},1000);
-            window.location.href = "dashboard.html";
+            setTimeout(() => {
 
-        } 
+                window.location.href = "dashboard.html";
+
+            }, 800);
+
+        }
+
         else {
 
-    msg.className="message error";
-    msg.innerText="Invalid Email or Password";
+            loginMessage.style.color = "#d32f2f";
 
-}
+            loginMessage.innerText = "❌ Invalid Email or Password";
 
-    } catch (error) {
+        }
+
+    }
+
+    catch (error) {
 
         console.error(error);
 
-        alert("Server not responding.");
+        loginMessage.style.color = "#d32f2f";
+
+        loginMessage.innerText = "❌ Unable to connect to server.";
+
+    }
+
+    finally {
+
+        loginButton.disabled = false;
+
+        loginButton.innerText = "Login";
 
     }
 

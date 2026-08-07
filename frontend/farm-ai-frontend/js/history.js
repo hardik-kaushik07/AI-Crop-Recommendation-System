@@ -10,6 +10,11 @@ const historyContainer = document.getElementById("historyContainer");
 const loader = document.getElementById("loader");
 const messageBox = document.getElementById("messageBox");
 
+const pagination = document.getElementById("pagination");
+const prevPageBtn = document.getElementById("prevPage");
+const nextPageBtn = document.getElementById("nextPage");    
+const pageInfo = document.getElementById("pageInfo");
+
 const detailsModal = document.getElementById("detailsModal");
 const modalBody = document.getElementById("modalBody");
 const closeDetails = document.getElementById("closeDetails");
@@ -29,9 +34,14 @@ const deleteAllBtn = document.getElementById("deleteAllBtn");
 
 let selectedId = null;
 
+let currentPage = 0;
+
+const pageSize = 5;
+
+let totalPages = 0;
 
 
-loadHistory();
+loadHistory();    
 
 function showLoader() {
 
@@ -75,7 +85,8 @@ async function loadHistory() {
 
         const response = await fetch(
 
-            API_BASE_URL + "/api/farm/history",
+            API_BASE_URL +
+            `/api/farm/history?pageNumber=${currentPage}&pageSize=${pageSize}`,
 
             {
 
@@ -95,25 +106,45 @@ async function loadHistory() {
 
         }
 
-        const history = await response.json();
+        const page = await response.json();
+
+        const history = page.content;
+
+        totalPages = page.totalPages;
 
         hideLoader();
 
         if (history.length === 0) {
 
-            historyContainer.innerHTML = `
+    if (currentPage > 0) {
 
-                <h2 class="empty">
+        currentPage--;
 
-                    No Recommendation History Found
+        loadHistory();
 
-                </h2>
+        return;
 
-            `;
+    }
 
-            return;
+    historyContainer.innerHTML = `
 
-        }
+        <h2 class="empty">
+
+            🌾 No Farm Analysis Found
+
+            <br><br>
+
+            Analyze your farm to generate your first recommendation.
+
+        </h2>
+
+    `;
+
+    renderPagination();
+
+    return;
+
+}
 
         history.forEach(item => {
 
@@ -161,6 +192,8 @@ async function loadHistory() {
 
         });
 
+        renderPagination();
+
     }
 
     catch (error) {
@@ -183,7 +216,25 @@ async function loadHistory() {
 
 }
 
+function renderPagination() {
 
+    if (totalPages <= 1) {
+
+        pagination.style.display = "none";
+
+        return;
+
+    }
+
+    pagination.style.display = "flex";
+
+    pageInfo.innerText = `Page ${currentPage + 1} of ${totalPages}`;
+
+    prevPageBtn.disabled = currentPage === 0;
+
+    nextPageBtn.disabled = currentPage === totalPages - 1;
+
+}
 
 async function viewHistory(id) {
 
@@ -359,7 +410,13 @@ confirmDelete.addEventListener("click", async () => {
 
         showMessage("Recommendation deleted successfully.", "success");
 
-        loadHistory();
+        if (currentPage > 0 && historyContainer.children.length === 1) {
+
+    currentPage--;
+
+}
+
+await loadHistory();
 
     }
 
@@ -429,7 +486,9 @@ confirmDeleteAll.addEventListener("click", async () => {
 
         showMessage("Complete history deleted successfully.", "success");
 
-        loadHistory();
+        currentPage = 0;
+
+await loadHistory();    
 
     }
 
@@ -461,7 +520,29 @@ closeDetails.addEventListener("click", () => {
 
 });
 
+prevPageBtn.addEventListener("click", () => {
 
+    if (currentPage > 0) {
+
+        currentPage--;
+
+        loadHistory();
+
+    }
+
+});
+
+nextPageBtn.addEventListener("click", () => {
+
+    if (currentPage < totalPages - 1) {
+
+        currentPage++;
+
+        loadHistory();
+
+    }
+
+});
 
 window.addEventListener("click", function (event) {
 

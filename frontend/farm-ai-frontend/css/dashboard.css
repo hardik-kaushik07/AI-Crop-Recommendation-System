@@ -1,0 +1,749 @@
+/* ==========================================================
+                        RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#edf5ef;
+    color:#333;
+}
+
+/* ==========================================================
+                    DASHBOARD LAYOUT
+========================================================== */
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ==========================================================
+                        SIDEBAR
+========================================================== */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:250px;
+
+    height:100vh;
+
+    background:#1b5e20;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:30px 20px;
+
+    box-shadow:3px 0 15px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================================
+                        LOGO
+========================================================== */
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.logo{
+
+    font-size:32px;
+
+}
+
+.logo h2{
+
+    margin-top:10px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================================
+                        MENU
+========================================================== */
+
+.menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.menu button{
+
+    border:none;
+
+    background:#2e7d32;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.menu button:hover{
+
+    background:#43a047;
+
+    transform:translateX(6px);
+
+}
+
+/* ==========================================================
+                    LOGOUT BUTTON
+========================================================== */
+
+.logout-btn{
+
+    border:none;
+
+    background:#d32f2f;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.logout-btn:hover{
+
+    background:#b71c1c;
+
+}
+
+/* ==========================================================
+                    MAIN CONTENT
+========================================================== */
+
+.main{
+
+    margin-left:250px;
+
+    width:calc(100% - 250px);
+
+    padding:40px;
+
+}
+
+/* ==========================================================
+                    WELCOME SECTION
+========================================================== */
+
+.welcome{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    margin-bottom:35px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.welcome h1{
+
+    color:#1b5e20;
+
+    font-size:36px;
+
+    margin-bottom:15px;
+
+}
+
+.welcome p{
+
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================================
+                DASHBOARD STATISTICS
+========================================================== */
+
+.stats-section{
+
+    margin-bottom:40px;
+
+}
+
+.stats-section h2{
+
+    color:#1b5e20;
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+}
+
+/* ==========================================================
+                    STATS GRID
+========================================================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+/* ==========================================================
+                    STAT CARD
+========================================================== */
+
+.stat-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================================
+                    STAT ICON
+========================================================== */
+
+.stat-icon{
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    margin-bottom:18px;
+
+    border-radius:50%;
+
+    background:#e8f5e9;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:38px;
+
+    transition:.3s;
+
+}
+
+.stat-card:hover .stat-icon{
+
+    background:#c8e6c9;
+
+    transform:scale(1.08);
+
+}
+
+/* ==========================================================
+                    STAT NUMBER
+========================================================== */
+
+.stat-card h1{
+
+    color:#1b5e20;
+
+    font-size:46px;
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================================================
+                    STAT LABEL
+========================================================== */
+
+.stat-card p{
+
+    color:#666;
+
+    font-size:17px;
+
+}
+
+
+/* ==========================================================
+                    SMART FARMING TIPS
+========================================================== */
+
+.tips-section{
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================================================
+                    TIPS CARD
+========================================================== */
+
+.tips-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.tips-card h2{
+
+    color:#1b5e20;
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+}
+
+/* ==========================================================
+                    TIPS LIST
+========================================================== */
+
+.tips-card ul{
+
+    list-style:none;
+
+}
+
+.tips-card li{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px 0;
+
+    border-bottom:1px solid #eeeeee;
+
+    color:#555;
+
+    font-size:17px;
+
+    line-height:1.6;
+
+    transition:.3s;
+
+}
+
+.tips-card li:last-child{
+
+    border-bottom:none;
+
+}
+
+/* ==========================================================
+                    TIP ICON
+========================================================== */
+
+.tips-card li::before{
+
+    content:"🌱";
+
+    font-size:20px;
+
+    flex-shrink:0;
+
+}
+
+/* ==========================================================
+                    HOVER EFFECT
+========================================================== */
+
+.tips-card li:hover{
+
+    color:#1b5e20;
+
+    padding-left:12px;
+
+    background:#f7fbf7;
+
+    border-radius:8px;
+
+}
+
+/* ==========================================================
+                    LOGOUT MODAL
+========================================================== */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    animation:fadeIn .25s ease;
+
+}
+
+.modal-content{
+
+    width:420px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+    animation:popup .25s ease;
+
+}
+
+.modal-content h2{
+
+    color:#1b5e20;
+
+    font-size:30px;
+
+    margin-bottom:15px;
+
+}
+
+.modal-content p{
+
+    color:#666;
+
+    font-size:17px;
+
+    margin-bottom:30px;
+
+    line-height:1.6;
+
+}
+
+/* ==========================================================
+                    MODAL BUTTONS
+========================================================== */
+
+.modal-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+}
+
+.secondary-btn{
+
+    border:none;
+
+    background:#757575;
+
+    color:white;
+
+    padding:13px 28px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.secondary-btn:hover{
+
+    background:#616161;
+
+}
+
+.danger-btn{
+
+    border:none;
+
+    background:#d32f2f;
+
+    color:white;
+
+    padding:13px 28px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.danger-btn:hover{
+
+    background:#b71c1c;
+
+}
+
+/* ==========================================================
+                    ANIMATIONS
+========================================================== */
+
+@keyframes popup{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.85);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================================================
+                    SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2e7d32;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1b5e20;
+
+}
+
+/* ==========================================================
+                    RESPONSIVE DESIGN
+========================================================== */
+
+@media(max-width:992px){
+
+    .sidebar{
+
+        width:220px;
+
+    }
+
+    .main{
+
+        margin-left:220px;
+
+        width:calc(100% - 220px);
+
+        padding:30px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .dashboard{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        position:relative;
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+    .main{
+
+        margin-left:0;
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .activity-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+    .welcome h1{
+
+        font-size:30px;
+
+    }
+
+    .welcome p{
+
+        font-size:16px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .modal-content{
+
+        width:90%;
+
+        padding:25px;
+
+    }
+
+    .logo h2{
+
+        font-size:22px;
+
+    }
+
+    .menu button{
+
+        font-size:15px;
+
+    }
+
+}   

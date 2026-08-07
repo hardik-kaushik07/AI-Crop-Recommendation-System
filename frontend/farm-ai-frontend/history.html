@@ -4,9 +4,11 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>History | CropWise AI</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Farm Analysis History | CropWise AI</title>
 
     <link rel="stylesheet" href="css/history.css">
 
@@ -14,33 +16,45 @@
 
 <body>
 
-
+<!-- ================= NAVBAR ================= -->
 
 <header class="navbar">
 
     <div class="logo">
-        🌱 CropWise AI
+
+        🌱 CropWise AI                  
+
     </div>
 
-    <button class="back-btn" onclick="window.location.href='dashboard.html'">
+    <button
+            class="back-btn"
+            onclick="window.location.href='dashboard.html'">
+
         ← Dashboard
+
     </button>
 
 </header>
 
-
+<!-- ================= PAGE HEADER ================= -->
 
 <section class="page-header">
 
-    <h1>Recommendation History</h1>
+    <h1>
+
+        🌾 Farm Analysis History
+
+    </h1>
 
     <p>
-        View all your previous AI-generated crop recommendations.
+
+        View all AI-generated crop recommendations saved from your farm analysis.
+
     </p>
 
 </section>
 
-
+<!-- ================= ACTION BAR ================= -->
 
 <section class="action-bar">
 
@@ -48,17 +62,17 @@
             id="deleteAllBtn"
             class="danger-btn">
 
-        Delete All History
+        🗑 Delete All History
 
     </button>
 
 </section>
 
-<
+<!-- ================= MESSAGE ================= -->
 
 <div id="messageBox"></div>
 
-
+<!-- ================= HISTORY ================= -->
 
 <div
         id="historyContainer"
@@ -66,7 +80,31 @@
 
 </div>
 
+<!-- ================= Pagination ================= -->
 
+<div id="pagination" class="pagination">
+
+    <button id="prevPage" class="page-btn">
+
+        ← Previous
+
+    </button>
+
+    <span id="pageInfo">
+
+        Page 1 of 1
+
+    </span>
+
+    <button id="nextPage" class="page-btn">
+
+        Next →
+
+    </button>
+
+</div>  
+
+<!-- ================= DETAILS MODAL ================= -->
 
 <div
         id="detailsModal"
@@ -76,7 +114,11 @@
 
         <div class="modal-header">
 
-            <h2>Recommendation Details</h2>
+            <h2>
+
+                Recommendation Details
+
+            </h2>
 
             <span id="closeDetails">
 
@@ -94,7 +136,7 @@
 
 </div>
 
-
+<!-- ================= DELETE ONE ================= -->
 
 <div
         id="deleteModal"
@@ -108,7 +150,7 @@
 
         </h2>
 
-        <p id="deleteMessage">
+        <p>
 
             This recommendation will be permanently deleted.
 
@@ -138,7 +180,7 @@
 
 </div>
 
-
+<!-- ================= DELETE ALL ================= -->
 
 <div
         id="deleteAllModal"
@@ -154,7 +196,7 @@
 
         <p>
 
-            All recommendations will be permanently removed.
+            This action cannot be undone.
 
         </p>
 
@@ -182,7 +224,7 @@
 
 </div>
 
-
+<!-- ================= LOADER ================= -->
 
 <div
         id="loader"
@@ -192,13 +234,14 @@
 
     <p>
 
-        Loading Recommendations...
+        Loading Farm History...
 
     </p>
 
 </div>
 
 <script src="js/config.js"></script>
+
 <script src="js/history.js"></script>
 
 </body>

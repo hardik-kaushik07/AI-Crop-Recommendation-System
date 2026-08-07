@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+    <title>Farm AI Assistant</title>
+
+    <link
+            rel="stylesheet"
+            href="css/chat.css">
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            🌱 CropWise AI
+
+        </div>
+
+        <button
+                id="newChatBtn"
+                class="new-chat-btn">
+
+            + New Chat
+
+        </button>
+
+        <div class="conversation-title">
+
+            Conversations
+
+        </div>
+
+        <div
+                id="conversationList"
+                class="conversation-list">
+
+        </div>
+
+        <button
+                id="dashboardBtn"
+                class="sidebar-btn">
+
+            🏠 Dashboard
+
+        </button>
+
+        <button
+                id="analysisBtn"
+                class="sidebar-btn">
+
+            🌾 Farm Analysis
+
+        </button>
+
+        <button
+                id="historyBtn"
+                class="sidebar-btn">
+
+            📜 History
+
+        </button>
+
+        <button
+                id="logoutBtn"
+                class="logout-btn">
+
+            Logout
+
+        </button>
+
+    </aside>
+
+    <!-- ================= CHAT ================= -->
+
+    <main class="chat-container">
+
+        <!-- HEADER -->
+
+        <div class="chat-header">
+
+            <div>
+
+                <h2>
+
+                    🤖 Farm AI Assistant
+
+                </h2>
+
+                <p>
+
+                    Ask anything about farming
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- CHAT -->
+
+        <div
+                id="chatBox"
+                class="chat-box">
+
+            <div class="welcome-card">
+
+                <h2>
+
+                    Welcome 👋
+
+                </h2>
+
+                <p>
+
+                    I can help you with
+
+                </p>
+
+                <ul>
+
+                    <li>🌾 Crop Recommendation</li>
+
+                    <li>🌦 Weather</li>
+
+                    <li>📄 PDF Question Answering</li>
+
+                    <li>🖼 Image Understanding</li>
+
+                    <li>💰 Crop Prices</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Uploaded files -->
+
+        <div
+                id="attachmentContainer"
+                class="attachment-container">
+
+        </div>
+
+        <!-- Typing -->
+
+        <div
+                id="typingIndicator"
+                class="typing-indicator">
+
+            🤖 AI is thinking...
+
+        </div>
+
+        <!-- INPUT -->
+
+        <div class="chat-input">
+
+            <div class="upload-row">
+
+                <label class="upload-btn">
+
+                    📄 PDF
+
+                    <input
+                            id="pdfInput"
+                            type="file"
+                            accept=".pdf,.txt"
+                            hidden>
+
+                </label>
+
+                <label class="upload-btn">
+
+                    🖼 Image
+
+                    <input
+                            id="imageInput"
+                            type="file"
+                            accept="image/*"
+                            hidden>
+
+                </label>
+
+            </div>
+
+            <div class="input-row">
+
+                <textarea
+
+                        id="question"
+
+                        placeholder="Ask anything about farming..."
+
+                        rows="2">
+
+                </textarea>
+
+                <button
+                        id="sendBtn">
+
+                    Send
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<div id="deleteConversationModal" class="modal">
+
+    <div class="confirm-card">
+
+        <h2>Delete Conversation?</h2>
+
+        <p>
+            This conversation will be permanently deleted.
+        </p>
+
+        <div class="confirm-buttons">
+
+            <button
+                id="cancelConversationDelete"
+                class="secondary-btn">
+
+                Cancel
+
+            </button>
+
+            <button
+                id="confirmConversationDelete"
+                class="danger-btn">
+
+                Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/config.js"></script>
+
+<script src="js/api.js"></script>
+
+<script src="js/chat.js"></script>
+
+</body>
+
+</html>

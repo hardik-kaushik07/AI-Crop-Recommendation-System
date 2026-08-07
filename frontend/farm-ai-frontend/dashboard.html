@@ -4,61 +4,242 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Dashboard | CropWise AI</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="css/dashboard.css">
 
 </head>
 
-<body class="dashboard-body">
+<body>
 
-<div class="dashboard-container">
+<div class="dashboard">
 
-    <h1>🌱 CropWise AI</h1>
+    <!-- ================= SIDEBAR ================= -->
 
-    <p class="welcome">
-        Welcome Back!
-    </p>
+    <aside class="sidebar">
 
-    <div class="dashboard-card">
+        <div>
 
-        <h2>New Crop Recommendation</h2>
+            <div class="logo">
 
-        <p>
-            Analyze your farm and get AI-powered crop recommendations.
-        </p>
+                🌱
 
-        <a href="analysis.html" class="dashboard-btn">
-            Start Analysis
-        </a>
+                <h2>CropWise AI</h2>
 
-    </div>
+            </div>
 
-    <div class="dashboard-card">
+            <nav class="menu">
 
-        <h2>Recommendation History</h2>
+                <button id="dashboardBtn">
 
-        <p>
-            View all previous crop analyses.
-        </p>
+                    🏠 Dashboard
 
-        <a href="history.html" class="dashboard-btn">
-            View History
-        </a>
+                </button>
 
-    </div>
+                <button id="chatBtn">
 
-    <button id="logoutBtn" class="logout-btn">
+                    🤖 AI Assistant
 
-        Logout
+                </button>
 
-    </button>
+                <button id="analysisBtn">
+
+                    🌾 Farm Analysis
+
+                </button>
+
+                <button id="historyBtn">
+
+                    📜 Recommendation History
+
+                </button>
+
+            </nav>
+
+        </div>
+
+        <button
+                id="logoutBtn"
+                class="logout-btn">
+
+            🚪 Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- Welcome -->
+
+        <section class="welcome">
+
+            <h1>
+
+                Welcome to CropWise AI 👋
+
+            </h1>
+
+            <p>
+
+                Your intelligent farming assistant powered by
+                Spring Boot, Spring AI and Gemini.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= Dashboard Statistics ================= -->
+
+        <section class="stats-section">
+
+            <h2>
+
+                📊 Dashboard Statistics
+
+            </h2>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">🤖</div>
+
+                    <h1 id="chatCount">0</h1>
+
+                    <p>AI Chats</p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">🌾</div>
+
+                    <h1 id="analysisCount">0</h1>
+
+                    <p>Farm Analyses</p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">📄</div>
+
+                    <h1 id="pdfCount">0</h1>
+
+                    <p>PDF Uploads</p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">🖼️</div>
+
+                    <h1 id="imageCount">0</h1>
+
+                    <p>Images Uploaded</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= Smart Farming Tips ================= -->
+
+        <section class="tips-section">
+
+            <div class="tips-card">
+
+                <h2>
+
+                    💡 Smart Farming Tips
+
+                </h2>
+
+                <ul>
+
+                    <li>Analyze your soil before sowing.</li>
+
+                    <li>Check weather before irrigation.</li>
+
+                    <li>Upload crop images to detect diseases.</li>
+
+                    <li>Ask questions from agriculture PDFs.</li>
+
+                    <li>Review previous recommendations before planting.</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </div>
+
+
+
+<!-- ================= Logout Modal ================= -->
+
+<div
+        id="logoutModal"
+        class="modal">
+
+    <div class="modal-content">
+
+        <h2>
+
+            Logout?
+
+        </h2>
+
+        <p>
+
+            Are you sure you want to logout?
+
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                    id="cancelLogout"
+                    class="secondary-btn">
+
+                Cancel
+
+            </button>
+
+            <button
+                    id="confirmLogout"
+                    class="danger-btn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/config.js"></script>
 
 <script src="js/dashboard.js"></script>
 
 </body>
+
 </html>

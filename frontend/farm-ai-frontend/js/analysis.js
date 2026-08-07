@@ -82,6 +82,8 @@ form.addEventListener("submit",async(e)=>{
 
         resultCard.style.display="block";
 
+        document.getElementById("resultActions").style.display = "flex";    
+
         resultCard.scrollIntoView({
 
             behavior:"smooth"
@@ -102,3 +104,31 @@ form.addEventListener("submit",async(e)=>{
     }
 
 });
+
+// ===============================
+// Navigation Buttons
+// ===============================
+
+document.getElementById("goDashboardBtn").onclick = () => {
+
+    window.location.href = "dashboard.html";
+
+};
+
+document.getElementById("goChatBtn").onclick = () => {
+
+    window.location.href = "chat.html";
+
+};
+
+document.getElementById("dashboardBtn").onclick = () => {
+
+    window.location.href = "dashboard.html";
+
+};
+
+document.getElementById("chatBtn").onclick = () => {
+
+    window.location.href = "chat.html";
+
+};
