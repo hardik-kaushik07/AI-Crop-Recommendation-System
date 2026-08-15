@@ -164,16 +164,6 @@
 
             chatMessageRepository.save(userMessage);
 
-            System.out.println("==================================");
-            System.out.println("Image Path      : " + image.getStoragePath());
-            System.out.println("Image Type      : " + image.getFileType());
-            System.out.println("File Exists     : " + imageResource.exists());
-            System.out.println("File Readable   : " + imageResource.isReadable());
-            System.out.println("File Length     : " + imageResource.contentLength());
-            System.out.println("==================================");
-            System.out.println("Document Id : " + imageChatResponses.getDocumentId());
-            System.out.println("Question    : " + imageChatResponses.getQuestion());
-
                 String aiResponse;
                 try{
                     aiResponse = chatClient.prompt()

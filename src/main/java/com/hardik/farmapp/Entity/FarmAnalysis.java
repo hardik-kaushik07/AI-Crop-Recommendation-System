@@ -25,14 +25,6 @@ public class FarmAnalysis {
 
     private String soilType;
 
-    private double ph;
-
-    private String nitrogen;
-
-    private String phosphorus;
-
-    private String potassium;
-
     private String season;
 
     @Builder.Default
