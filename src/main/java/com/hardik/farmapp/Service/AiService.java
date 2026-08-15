@@ -55,10 +55,6 @@ Analyze ALL of the following carefully before making a decision:
 
 • Location
 • Soil Type
-• Soil pH
-• Nitrogen level
-• Phosphorus level
-• Potassium level
 • Current Season
 • Temperature
 • Humidity
@@ -68,10 +64,6 @@ Farm Details
 
 Location : %s
 Soil Type : %s
-Soil pH : %.2f
-Nitrogen : %s
-Phosphorus : %s
-Potassium : %s
 Season : %s
 Temperature : %.2f
 Humidity : %d
@@ -126,27 +118,11 @@ Rules
 """,
                 request.getLocation(),
                 request.getSoilType(),
-                request.getPh(),
-                request.getNitrogen(),
-                request.getPhosphorus(),
-                request.getPotassium(),
                 request.getSeason(),
                 weather.getTemperature(),
                 weather.getHumidity(),
                 weather.getWeatherCondition()
         );
-
-//        String response= chatClient.prompt()
-//                .user(prompt)
-//                .call()
-//                .content();
-
-
-//        CropRecommendation recommendation= chatClient.prompt()
-//                .user(prompt)
-//                .tools(weatherTools)
-//                .call()
-//                .entity(CropRecommendation.class);
 
         CropRecommendation recommendation = chatClient.prompt()
                 .user(prompt)
@@ -165,25 +141,13 @@ Rules
                 throw new UsernameNotFoundException("Sorry the user not Found");
             }
 
-//            CropRecommendation recommendation =
-//                    objectMapper.readValue(response, CropRecommendation.class);
-
             System.out.println("Harvest = " + recommendation.getHarvestTime());
             System.out.println("Yield = " + recommendation.getExpectedYield());
-
-//            recommendation.setTemperature(weather.getTemperature());
-//            recommendation.setHumidity(weather.getHumidity());
-//            recommendation.setWeatherCondition(weather.getWeatherCondition());
-
 
             FarmAnalysis analysis = new FarmAnalysis();
 
             analysis.setLocation(request.getLocation());
             analysis.setSoilType(request.getSoilType());
-            analysis.setPh(request.getPh());
-            analysis.setNitrogen(request.getNitrogen());
-            analysis.setPhosphorus(request.getPhosphorus());
-            analysis.setPotassium(request.getPotassium());
             analysis.setSeason(request.getSeason());
             analysis.setTemperature(recommendation.getTemperature());
             analysis.setHumidity(recommendation.getHumidity());
@@ -208,13 +172,4 @@ Rules
     }
 }
 
-//{
-//  "crop":"",
-//  "reason":"",
-//  "fertilizer":"",
-//  "pesticide":"",
-//  "irrigation":"",
-//  "diseaseRisk":"",
-//  "harvestTime":"",
-//  "expectedYield":""
-//}
+
