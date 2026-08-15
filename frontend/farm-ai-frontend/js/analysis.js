@@ -18,14 +18,6 @@ form.addEventListener("submit",async(e)=>{
 
         soilType:document.getElementById("soilType").value,
 
-        ph:Number(document.getElementById("ph").value),
-
-        nitrogen:document.getElementById("nitrogen").value,
-
-        phosphorus:document.getElementById("phosphorus").value,
-
-        potassium:document.getElementById("potassium").value,
-
         season:document.getElementById("season").value
 
     };
