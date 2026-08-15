@@ -11,9 +11,6 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
 
-    ports:
-      - "3307:3306"
-
     volumes:
       - mysql-data:/var/lib/mysql
 
@@ -30,9 +27,6 @@ services:
       - ./uploads:/app/uploads
 
     environment:
-
-      SPRING_PROFILES_ACTIVE: local
-
 
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}
       SPRING_DATASOURCE_USERNAME: root
