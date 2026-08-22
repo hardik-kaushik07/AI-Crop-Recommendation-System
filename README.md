@@ -1,4 +1,4 @@
-# 🌱 AI Crop Recommendation System:
+# 🌱 CropWise AI – Smart Crop Recommendation System
 
 AI Crop Recommendation System is a full-stack web application built to help farmers make better farming decisions with the help of Generative AI.
 
@@ -8,7 +8,6 @@ Apart from crop analysis, the application also provides an AI farming assistant 
 
 The project is built using Spring Boot and Spring AI on the backend with JWT-based authentication, while the frontend is developed using HTML, CSS and JavaScript. All user data including conversations, uploaded documents and farm recommendations are stored securely in MySQL.
 
----
 
 # Project Features:
 
@@ -21,18 +20,12 @@ The project is built using Spring Boot and Spring AI on the backend with JWT-bas
 - Role Based Authorization (USER / ADMIN)
 - Protected REST APIs using Spring Security
 
----
-
 2-) AI Farm Analysis:
 
 Users can enter their farm details and receive AI-generated recommendations based on:
 
 - Location
 - Soil Type
-- Soil pH
-- Nitrogen Level
-- Phosphorus Level
-- Potassium Level
 - Season
 - Live Weather Data
 
@@ -49,8 +42,6 @@ The AI response includes:
 
 Every recommendation is automatically stored in the user's history.
 
----
-
 3-) AI Chat Assistant:
 
 The application includes a farming assistant powered by Google Gemini.
@@ -64,8 +55,6 @@ Users can:
 
 The chat remembers the conversation context, making interactions more natural.
 
----
-
 4-) PDF Question Answering (RAG):
 
 Users can upload PDF documents inside a conversation.
@@ -75,8 +64,6 @@ After uploading a document, they can ask questions in the same chat.
 The system retrieves the most relevant content from the uploaded PDF and sends it to Gemini before generating the final answer.
 
 This allows users to interact with farming guides, manuals and agricultural documents naturally.
-
----
 
 5-) Image Understanding:
 
@@ -89,8 +76,6 @@ Users can upload crop or farm images and ask questions such as:
 
 The image is analyzed using Google's multimodal Gemini model.
 
----
-
 6-) Recommendation History:
 
 Every farm analysis is saved automatically.
@@ -102,8 +87,6 @@ Users can:
 - Delete a single recommendation
 - Delete complete history
 - Browse history using pagination
-
----
 
 7-) Dashboard:
 
@@ -118,8 +101,6 @@ It displays:
 
 The dashboard also shows the latest activity for quick access.
 
----
-
 8-) Secure File Management:
 
 Uploaded documents are stored securely.
@@ -127,8 +108,6 @@ Uploaded documents are stored securely.
 Only the owner of a document can access or download it.
 
 Unauthorized users cannot access another user's files.
-
----
 
 9-) Docker Support:
 
@@ -141,13 +120,11 @@ Docker automatically creates:
 
 making the project easy to set up on any machine.
 
----
-
 # Tech Stack:
 
 ## Backend:
 
-- Java 21
+- Java 17
 - Spring Boot
 - Spring Security
 - Spring AI
@@ -159,21 +136,15 @@ making the project easy to set up on any machine.
 - Google Gemini API
 - OpenWeather API
 
----
-
 ## Frontend:
 
 - HTML5
 - CSS3
 - JavaScript
 
----
-
 ## Database:
 
 - MySQL
-
----
 
 ## Tools:
 
@@ -183,8 +154,6 @@ making the project easy to set up on any machine.
 - Docker
 - Git
 - GitHub
-
----
 
 ## Main Libraries Used:
 
@@ -196,8 +165,6 @@ making the project easy to set up on any machine.
 - JWT (JJWT)
 - MySQL Connector
 - Swagger
-
----
 
 # Why I Built This Project:
 
@@ -268,8 +235,6 @@ The frontend is built using HTML, CSS and JavaScript. It is responsible for coll
 The backend is developed using Spring Boot. It handles authentication, communicates with Google Gemini, fetches weather information, stores data in MySQL and returns responses to the frontend.
 
 Every request first passes through Spring Security, where the JWT token is verified before allowing access to protected APIs.
-
----
 
 # Application Workflow:
 
@@ -342,8 +307,6 @@ Display Result
 
 The generated recommendation is automatically saved so the user can view it later from the history page.
 
----
-
 ## 3. AI Chat Workflow:
 
 ```
@@ -383,8 +346,6 @@ Return AI Response
 ```
 
 Each conversation has its own unique ID, allowing users to continue previous chats whenever they want.
-
----
 
 ## 4. PDF Chat (RAG) Workflow:
 
@@ -444,8 +405,6 @@ The user does not need a separate endpoint to ask PDF questions.
 
 Once a PDF has been uploaded into a conversation, the normal AI Chat endpoint automatically answers questions using the uploaded document whenever relevant.
 
----
-
 ## 5. Image Chat Workflow:
 
 ```
@@ -490,8 +449,6 @@ Display Response
 
 The user can upload crop images and ask questions about diseases, plant health, fertilizers or any other farming-related topic.
 
----
-
 # Database:
 
 The application uses MySQL to store user information and AI-generated data.
@@ -507,8 +464,6 @@ Main tables include:
 
 Relationships are managed using Spring Data JPA and Hibernate.
 
----
-
 # Prerequisites:
 
 Before running the project, make sure the following software is installed.
@@ -520,8 +475,6 @@ Before running the project, make sure the following software is installed.
 - Git
 
 Any modern browser such as Chrome, Edge or Firefox can be used to run the frontend.
-
----
 
 # Clone the Repository:
 
@@ -552,12 +505,10 @@ WEATHER_API_KEY=your_weather_api_key
 
 GEMINI_API_KEY=your_gemini_api_key
 
-GEMINI_MODEL=gemini-2.5-flash
+GEMINI_MODEL=gemini-3.6-flash
 ```
 
 Replace the values with your own API keys before running the application.
-
----
 
 # Running the Backend:
 
@@ -575,8 +526,6 @@ The backend will be available at
 http://localhost:8080
 ```
 
----
-
 # Running with Docker:
 
 The project also supports Docker Compose.
@@ -593,8 +542,6 @@ Docker automatically creates
 - Spring Boot Container
 
 No additional configuration is required.
-
----
 
 # Running the Frontend:
 
@@ -646,8 +593,6 @@ POST /api/user/login
 
 Logs in the user and returns a JWT token.
 
----
-
 ## Dashboard:
 
 ### Dashboard Statistics:
@@ -657,8 +602,6 @@ GET /api/dashboard/stats
 ```
 
 Returns dashboard statistics such as total chats, farm analyses, uploaded documents, and other user-related information.
-
----
 
 ## Farm Analysis:
 
@@ -747,8 +690,6 @@ Sends a text message to the AI.
 
 If a PDF has already been uploaded in the same conversation, the AI answers using both the uploaded document and the user's question.
 
----
-
 ### Image Chat:
 
 ```
@@ -756,8 +697,6 @@ POST /api/ai/image/chat/{conversationId}
 ```
 
 Allows users to ask questions about an uploaded image.
-
----
 
 ### Chat History:
 
@@ -767,8 +706,6 @@ GET /api/chat/history
 
 Returns all conversations of the logged-in user.
 
----
-
 ### Conversation Details:
 
 ```
@@ -776,8 +713,6 @@ GET /api/chat/{conversationId}
 ```
 
 Returns complete messages of a conversation.
-
----
 
 ### Delete Conversation:
 
@@ -787,8 +722,6 @@ DELETE /api/chat/{conversationId}
 
 Deletes a specific conversation.
 
----
-
 ### Delete All Chat History:
 
 ```
@@ -796,8 +729,6 @@ DELETE /api/chat/history
 ```
 
 Deletes all conversations of the logged-in user.
-
----
 
 ## Document Upload (RAG):
 
@@ -811,8 +742,6 @@ Uploads a PDF document for a conversation.
 
 After uploading, users can ask questions related to that document through the normal chat endpoint.
 
----
-
 ## File Access:
 
 ### View Uploaded File:
@@ -823,8 +752,6 @@ GET /api/files/{documentId}
 
 Returns the uploaded document if it belongs to the logged-in user.
 
----
-
 ## Authentication:
 
 All endpoints except Register and Login require a valid JWT token.
@@ -834,8 +761,6 @@ Include the token in every protected request.
 ```
 Authorization: Bearer YOUR_JWT_TOKEN
 ```
-
----
 
 ## Swagger:
 
@@ -899,9 +824,6 @@ Some screenshots of the application are shown below.
 
 <img width="1356" height="4535" alt="localhost_8080_swagger-ui_index html" src="https://github.com/user-attachments/assets/8b2e0992-7d4c-46f6-a9d7-349a905a8ad2" />
 
-
----
-
 # Future Improvements
 
 Some features I plan to add in future versions:
@@ -916,8 +838,6 @@ Some features I plan to add in future versions:
 - Voice-based AI Assistant
 - Mobile Application
 
----
-
 # Author:
 
 **Hardik Kaushik**
@@ -931,18 +851,13 @@ GitHub:
 https://github.com/hardik-kaushik07
 
 LinkedIn:
-
-https://www.linkedin.com/in/hardik-kaushik-55020b3a9
-
----
+https://www.linkedin.com/in/hardikkaushik31
 
 # Feedback:
 
-If you find any bugs or have suggestions for improvement, feel free to open an Issue or create a Pull Request.
+If you find any bugs or have suggestions for improvement, feel free to open an Issue or create a Pull Request.                                                                                                                                       
 
 I'm always open to learning and improving the project.
-
----
 
 # Support
 
